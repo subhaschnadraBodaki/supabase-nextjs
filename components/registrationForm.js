@@ -8,7 +8,7 @@ export default function Form() {
 
     const res = await fetch(`/api/register`, {
       body: JSON.stringify({
-        name: event.target.name.value,
+        role: event.target.role.value,
         email: event.target.email.value,
         password: event.target.password.value,
       }),
@@ -25,13 +25,13 @@ export default function Form() {
 
   return (
     <form className={styles.form} onSubmit={registerUser}>
-      <label htmlFor="name">Name</label>
+      <label htmlFor="name">Role</label>
       <input
-        id="name"
-        name="name"
+        id="role"
+        name="role"
         type="text"
-        autoComplete="name"
-        required
+        autoComplete="role"
+        
         className={styles.input}
       />
       <label htmlFor="email">Email</label>

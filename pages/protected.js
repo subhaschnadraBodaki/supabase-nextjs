@@ -6,8 +6,11 @@ export async function getServerSideProps() {
     response.json()
   );
 
-  const { user } = response;
+  const { user, session } = response;
 
+  
+
+  console.log(session);
   if (!user) {
     return {
       redirect: { destination: "/login", permanent: false },
@@ -15,12 +18,14 @@ export async function getServerSideProps() {
   }
   return { props: { user } };
 }
+
 export default function Protected({ user }) {
   return (
     <>
       <Layout>
         <div className="container">
           <p>
+            {user.role}
             Welcome {user.email}!{" "}
             <span role="img" aria-label="waving hand">
               👋🏾
